@@ -12,6 +12,7 @@
 
     <modules>
         <module>backend-app</module>
+        <module>hibernate-entity-generation-config</module>
     </modules>
 
 </project>

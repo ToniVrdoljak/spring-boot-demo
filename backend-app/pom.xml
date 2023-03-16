@@ -64,6 +64,11 @@
 						<artifactId>postgresql</artifactId>
 						<version>42.5.4</version>
 					</dependency>
+					<dependency>
+						<groupId>com</groupId>
+						<artifactId>hibernate-entity-generation-config</artifactId>
+						<version>0.0.1-SNAPSHOT</version>
+					</dependency>
 				</dependencies>
 				<executions>
 					<execution>
@@ -74,6 +79,8 @@
 						</goals>
 						<configuration>
 							<ejb3>true</ejb3>
+							<revengStrategy>com.hibernateentitygenerationconfig.CustomRevengStrategy</revengStrategy>
+							<propertyFile>src/main/resources/hibernate-entity-generation.properties</propertyFile>
 						</configuration>
 					</execution>
 				</executions>
