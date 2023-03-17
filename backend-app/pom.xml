@@ -62,7 +62,7 @@
 					<dependency>
 						<groupId>org.postgresql</groupId>
 						<artifactId>postgresql</artifactId>
-						<version>42.5.4</version>
+						<version>${postgresql.version}</version>
 					</dependency>
 					<dependency>
 						<groupId>com</groupId>
@@ -88,7 +88,7 @@
 			<plugin>
 				<groupId>org.flywaydb</groupId>
 				<artifactId>flyway-maven-plugin</artifactId>
-				<version>8.5.13</version>
+				<version>${flyway.version}</version>
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
