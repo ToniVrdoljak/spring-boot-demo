@@ -22,6 +22,9 @@ if [[ -n "$1" ]]; then
     echo -e "${BGreen}\nAutogenerating entities...${Color_Off}"
     ./mvnw hibernate-tools:hbm2java --projects ${module}
 
+    echo -e "${BGreen}\nFormatting files...${Color_Off}"
+    ./mvnw formatter:format --projects ${module}
+
     cd "bin"
     ./stopdb
 
