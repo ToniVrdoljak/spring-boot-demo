@@ -2,16 +2,8 @@ version: '2.1'
 
 services:
   database:
-    image: postgres:latest
-    ports:
-      - "5432:5432"
+    image: postgres:11.2
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: pass
       POSTGRES_DB: demo_dev
-    networks:
-      - backend
-
-networks:
-  backend:
-    driver: bridge

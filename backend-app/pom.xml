@@ -70,20 +70,11 @@
 						<version>0.0.1-SNAPSHOT</version>
 					</dependency>
 				</dependencies>
-				<executions>
-					<execution>
-						<id>entity-generation</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>hbm2java</goal>
-						</goals>
-						<configuration>
-							<ejb3>true</ejb3>
-							<revengStrategy>com.hibernateentitygenerationconfig.CustomRevengStrategy</revengStrategy>
-							<propertyFile>src/main/resources/hibernate-entity-generation.properties</propertyFile>
-						</configuration>
-					</execution>
-				</executions>
+				<configuration>
+					<ejb3>true</ejb3>
+					<revengStrategy>com.hibernateentitygenerationconfig.CustomRevengStrategy</revengStrategy>
+					<propertyFile>src/main/resources/hibernate-entity-generation.properties</propertyFile>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.flywaydb</groupId>
