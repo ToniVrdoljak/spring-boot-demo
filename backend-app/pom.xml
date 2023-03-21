@@ -74,6 +74,7 @@
 					<ejb3>true</ejb3>
 					<revengStrategy>com.hibernateentitygenerationconfig.CustomRevengStrategy</revengStrategy>
 					<propertyFile>src/main/resources/hibernate-entity-generation.properties</propertyFile>
+					<outputDirectory>src/main/java</outputDirectory>
 				</configuration>
 			</plugin>
 			<plugin>

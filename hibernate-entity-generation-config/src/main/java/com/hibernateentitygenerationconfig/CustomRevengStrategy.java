@@ -1,9 +1,10 @@
 package com.hibernateentitygenerationconfig;
 
+import org.hibernate.internal.util.StringHelper;
 import org.hibernate.tool.api.reveng.TableIdentifier;
-import org.hibernate.tool.internal.reveng.strategy.DefaultStrategy;
+import org.hibernate.tool.internal.reveng.strategy.AbstractStrategy;
 
-public class CustomRevengStrategy extends DefaultStrategy {
+public class CustomRevengStrategy extends AbstractStrategy {
 
     @Override
     public boolean excludeTable(TableIdentifier ti) {
@@ -12,7 +13,9 @@ public class CustomRevengStrategy extends DefaultStrategy {
 
     @Override
     public String tableToClassName(TableIdentifier ti) {
-        return singularize(this.toUpperCamelCase(ti.getName()));
+        String pkgName = "com.springbootdemo.model";
+        String className = singularize(this.toUpperCamelCase(ti.getName()));
+        return StringHelper.qualify(pkgName, className);
     }
 
     private String singularize(String name) {
