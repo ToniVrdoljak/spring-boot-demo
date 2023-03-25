@@ -72,6 +72,7 @@
 				</dependencies>
 				<configuration>
 					<ejb3>true</ejb3>
+					<jdk5>true</jdk5>
 					<revengStrategy>com.hibernateentitygenerationconfig.CustomRevengStrategy</revengStrategy>
 					<propertyFile>src/main/resources/hibernate-entity-generation.properties</propertyFile>
 					<outputDirectory>src/main/java</outputDirectory>
