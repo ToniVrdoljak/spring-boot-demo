@@ -18,6 +18,11 @@ public class CustomRevengStrategy extends AbstractStrategy {
         return StringHelper.qualify(pkgName, className);
     }
 
+    @Override
+    public String getTableIdentifierStrategyName(TableIdentifier identifier) {
+        return org.hibernate.id.IdentityGenerator.class.getName();
+    }
+
     private String singularize(String name) {
         String result = name;
 
