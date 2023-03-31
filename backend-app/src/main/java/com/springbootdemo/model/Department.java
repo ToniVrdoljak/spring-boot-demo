@@ -1,5 +1,5 @@
 package com.springbootdemo.model;
-// Generated Mar 27, 2023, 9:17:18 AM by Hibernate Tools 6.1.7.Final
+// Generated Mar 31, 2023, 10:43:33 PM by Hibernate Tools 6.1.7.Final
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,9 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
-import java.sql.Timestamp;
+import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import org.hibernate.annotations.GenericGenerator;
@@ -25,20 +23,20 @@ public class Department implements java.io.Serializable {
     private Long id;
     private String name;
     private String description;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
+    private ZonedDateTime createdAt;
+    private ZonedDateTime updatedAt;
     private Set<Employee> employees = new HashSet<Employee>(0);
 
     public Department() {
     }
 
-    public Department(String name, Timestamp createdAt, Timestamp updatedAt) {
+    public Department(String name, ZonedDateTime createdAt, ZonedDateTime updatedAt) {
         this.name = name;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
-    public Department(String name, String description, Timestamp createdAt, Timestamp updatedAt,
+    public Department(String name, String description, ZonedDateTime createdAt, ZonedDateTime updatedAt,
             Set<Employee> employees) {
         this.name = name;
         this.description = description;
@@ -78,23 +76,21 @@ public class Department implements java.io.Serializable {
         this.description = description;
     }
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, length = 35)
-    public Timestamp getCreatedAt() {
+    public ZonedDateTime getCreatedAt() {
         return this.createdAt;
     }
 
-    public void setCreatedAt(Timestamp createdAt) {
+    public void setCreatedAt(ZonedDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_at", nullable = false, length = 35)
-    public Timestamp getUpdatedAt() {
+    public ZonedDateTime getUpdatedAt() {
         return this.updatedAt;
     }
 
-    public void setUpdatedAt(Timestamp updatedAt) {
+    public void setUpdatedAt(ZonedDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 

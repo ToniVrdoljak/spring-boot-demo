@@ -1,5 +1,5 @@
 package com.springbootdemo.model;
-// Generated Mar 27, 2023, 9:17:18 AM by Hibernate Tools 6.1.7.Final
+// Generated Mar 31, 2023, 10:43:33 PM by Hibernate Tools 6.1.7.Final
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

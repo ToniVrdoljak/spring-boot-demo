@@ -1,5 +1,5 @@
 package com.springbootdemo.model;
-// Generated Mar 27, 2023, 9:17:18 AM by Hibernate Tools 6.1.7.Final
+// Generated Mar 31, 2023, 10:43:33 PM by Hibernate Tools 6.1.7.Final
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,9 +11,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
-import java.sql.Timestamp;
+import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import org.hibernate.annotations.GenericGenerator;
@@ -29,14 +27,15 @@ public class Employee implements java.io.Serializable {
     private Department department;
     private String name;
     private String lastname;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
+    private ZonedDateTime createdAt;
+    private ZonedDateTime updatedAt;
     private Set<JobRole> jobRoles = new HashSet<JobRole>(0);
 
     public Employee() {
     }
 
-    public Employee(Department department, String name, String lastname, Timestamp createdAt, Timestamp updatedAt) {
+    public Employee(Department department, String name, String lastname, ZonedDateTime createdAt,
+            ZonedDateTime updatedAt) {
         this.department = department;
         this.name = name;
         this.lastname = lastname;
@@ -44,8 +43,8 @@ public class Employee implements java.io.Serializable {
         this.updatedAt = updatedAt;
     }
 
-    public Employee(Department department, String name, String lastname, Timestamp createdAt, Timestamp updatedAt,
-            Set<JobRole> jobRoles) {
+    public Employee(Department department, String name, String lastname, ZonedDateTime createdAt,
+            ZonedDateTime updatedAt, Set<JobRole> jobRoles) {
         this.department = department;
         this.name = name;
         this.lastname = lastname;
@@ -95,23 +94,21 @@ public class Employee implements java.io.Serializable {
         this.lastname = lastname;
     }
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, length = 35)
-    public Timestamp getCreatedAt() {
+    public ZonedDateTime getCreatedAt() {
         return this.createdAt;
     }
 
-    public void setCreatedAt(Timestamp createdAt) {
+    public void setCreatedAt(ZonedDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_at", nullable = false, length = 35)
-    public Timestamp getUpdatedAt() {
+    public ZonedDateTime getUpdatedAt() {
         return this.updatedAt;
     }
 
-    public void setUpdatedAt(Timestamp updatedAt) {
+    public void setUpdatedAt(ZonedDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 

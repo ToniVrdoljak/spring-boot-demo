@@ -4,6 +4,8 @@ import org.hibernate.internal.util.StringHelper;
 import org.hibernate.tool.api.reveng.TableIdentifier;
 import org.hibernate.tool.internal.reveng.strategy.AbstractStrategy;
 
+import java.sql.Types;
+
 public class CustomRevengStrategy extends AbstractStrategy {
 
     @Override
@@ -21,6 +23,15 @@ public class CustomRevengStrategy extends AbstractStrategy {
     @Override
     public String getTableIdentifierStrategyName(TableIdentifier identifier) {
         return org.hibernate.id.IdentityGenerator.class.getName();
+    }
+
+    @Override
+    public String columnToHibernateTypeName(TableIdentifier table, String columnName, int sqlType, int length, int precision, int scale, boolean nullable, boolean generatedIdentifier) {
+        if(sqlType == Types.TIMESTAMP) {
+            return "java.time.ZonedDateTime";
+        }    else {
+            return super.columnToHibernateTypeName(table, columnName, sqlType, length, precision, scale, nullable, generatedIdentifier);
+        }
     }
 
     private String singularize(String name) {
