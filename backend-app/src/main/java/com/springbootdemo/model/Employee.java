@@ -31,11 +31,10 @@ public class Employee implements java.io.Serializable {
     private ZonedDateTime updatedAt;
     private Set<JobRole> jobRoles = new HashSet<JobRole>(0);
 
-    public Employee() {
-    }
+    public Employee() {}
 
-    public Employee(Department department, String name, String lastname, ZonedDateTime createdAt,
-            ZonedDateTime updatedAt) {
+    public Employee(
+            Department department, String name, String lastname, ZonedDateTime createdAt, ZonedDateTime updatedAt) {
         this.department = department;
         this.name = name;
         this.lastname = lastname;
@@ -43,8 +42,13 @@ public class Employee implements java.io.Serializable {
         this.updatedAt = updatedAt;
     }
 
-    public Employee(Department department, String name, String lastname, ZonedDateTime createdAt,
-            ZonedDateTime updatedAt, Set<JobRole> jobRoles) {
+    public Employee(
+            Department department,
+            String name,
+            String lastname,
+            ZonedDateTime createdAt,
+            ZonedDateTime updatedAt,
+            Set<JobRole> jobRoles) {
         this.department = department;
         this.name = name;
         this.lastname = lastname;
@@ -53,10 +57,11 @@ public class Employee implements java.io.Serializable {
         this.jobRoles = jobRoles;
     }
 
-    @GenericGenerator(name = "com.springbootdemo.model.EmployeeIdGenerator", strategy = "org.hibernate.id.IdentityGenerator")
+    @GenericGenerator(
+            name = "com.springbootdemo.model.EmployeeIdGenerator",
+            strategy = "org.hibernate.id.IdentityGenerator")
     @Id
     @GeneratedValue(generator = "com.springbootdemo.model.EmployeeIdGenerator")
-
     @Column(name = "id", unique = true, nullable = false)
     public Long getId() {
         return this.id;
@@ -113,9 +118,11 @@ public class Employee implements java.io.Serializable {
     }
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "employees_job_roles", schema = "public", joinColumns = {
-            @JoinColumn(name = "employee_id", nullable = false, updatable = false) }, inverseJoinColumns = {
-                    @JoinColumn(name = "job_role_id", nullable = false, updatable = false) })
+    @JoinTable(
+            name = "employees_job_roles",
+            schema = "public",
+            joinColumns = {@JoinColumn(name = "employee_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "job_role_id", nullable = false, updatable = false)})
     public Set<JobRole> getJobRoles() {
         return this.jobRoles;
     }
@@ -123,5 +130,4 @@ public class Employee implements java.io.Serializable {
     public void setJobRoles(Set<JobRole> jobRoles) {
         this.jobRoles = jobRoles;
     }
-
 }

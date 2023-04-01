@@ -23,7 +23,7 @@ if [[ -n "$1" ]]; then
     ./mvnw hibernate-tools:hbm2java --projects ${module}
 
     echo -e "${BGreen}\nFormatting files...${Color_Off}"
-    ./mvnw formatter:format --projects ${module}
+    ./mvnw spotless:apply --projects ${module}
 
     cd "bin"
     ./stopdb

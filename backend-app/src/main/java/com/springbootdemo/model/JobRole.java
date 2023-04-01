@@ -26,8 +26,7 @@ public class JobRole implements java.io.Serializable {
     private String description;
     private Set<Employee> employees = new HashSet<Employee>(0);
 
-    public JobRole() {
-    }
+    public JobRole() {}
 
     public JobRole(String name) {
         this.name = name;
@@ -39,10 +38,11 @@ public class JobRole implements java.io.Serializable {
         this.employees = employees;
     }
 
-    @GenericGenerator(name = "com.springbootdemo.model.JobRoleIdGenerator", strategy = "org.hibernate.id.IdentityGenerator")
+    @GenericGenerator(
+            name = "com.springbootdemo.model.JobRoleIdGenerator",
+            strategy = "org.hibernate.id.IdentityGenerator")
     @Id
     @GeneratedValue(generator = "com.springbootdemo.model.JobRoleIdGenerator")
-
     @Column(name = "id", unique = true, nullable = false)
     public Long getId() {
         return this.id;
@@ -71,9 +71,11 @@ public class JobRole implements java.io.Serializable {
     }
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "employees_job_roles", schema = "public", joinColumns = {
-            @JoinColumn(name = "job_role_id", nullable = false, updatable = false) }, inverseJoinColumns = {
-                    @JoinColumn(name = "employee_id", nullable = false, updatable = false) })
+    @JoinTable(
+            name = "employees_job_roles",
+            schema = "public",
+            joinColumns = {@JoinColumn(name = "job_role_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "employee_id", nullable = false, updatable = false)})
     public Set<Employee> getEmployees() {
         return this.employees;
     }
@@ -81,5 +83,4 @@ public class JobRole implements java.io.Serializable {
     public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
     }
-
 }

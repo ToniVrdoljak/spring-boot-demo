@@ -84,9 +84,28 @@
 				<version>${flyway.version}</version>
 			</plugin>
 			<plugin>
-				<groupId>net.revelc.code.formatter</groupId>
-				<artifactId>formatter-maven-plugin</artifactId>
-				<version>2.22.0</version>
+				<groupId>com.diffplug.spotless</groupId>
+				<artifactId>spotless-maven-plugin</artifactId>
+				<version>2.35.0</version>
+				<configuration>
+					<java>
+						<includes>
+							<include>src/main/java/**/*.java</include>
+							<include>src/test/java/**/*.java</include>
+						</includes>
+						<importOrder />
+						<removeUnusedImports />
+						<toggleOffOn/>
+						<trimTrailingWhitespace/>
+						<endWithNewline/>
+						<indent>
+							<tabs>true</tabs>
+							<spacesPerTab>4</spacesPerTab>
+						</indent>
+						<palantirJavaFormat/>
+					</java>
+					<!--Spotless supports other file type like SQL, pom.xml, YAML and others-->
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

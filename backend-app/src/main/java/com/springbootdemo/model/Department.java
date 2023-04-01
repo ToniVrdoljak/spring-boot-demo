@@ -27,8 +27,7 @@ public class Department implements java.io.Serializable {
     private ZonedDateTime updatedAt;
     private Set<Employee> employees = new HashSet<Employee>(0);
 
-    public Department() {
-    }
+    public Department() {}
 
     public Department(String name, ZonedDateTime createdAt, ZonedDateTime updatedAt) {
         this.name = name;
@@ -36,7 +35,11 @@ public class Department implements java.io.Serializable {
         this.updatedAt = updatedAt;
     }
 
-    public Department(String name, String description, ZonedDateTime createdAt, ZonedDateTime updatedAt,
+    public Department(
+            String name,
+            String description,
+            ZonedDateTime createdAt,
+            ZonedDateTime updatedAt,
             Set<Employee> employees) {
         this.name = name;
         this.description = description;
@@ -45,10 +48,11 @@ public class Department implements java.io.Serializable {
         this.employees = employees;
     }
 
-    @GenericGenerator(name = "com.springbootdemo.model.DepartmentIdGenerator", strategy = "org.hibernate.id.IdentityGenerator")
+    @GenericGenerator(
+            name = "com.springbootdemo.model.DepartmentIdGenerator",
+            strategy = "org.hibernate.id.IdentityGenerator")
     @Id
     @GeneratedValue(generator = "com.springbootdemo.model.DepartmentIdGenerator")
-
     @Column(name = "id", unique = true, nullable = false)
     public Long getId() {
         return this.id;
@@ -102,5 +106,4 @@ public class Department implements java.io.Serializable {
     public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
     }
-
 }
