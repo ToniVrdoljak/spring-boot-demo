@@ -8,7 +8,7 @@
         <version>3.0.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com</groupId>
+    <groupId>com.example</groupId>
     <artifactId>hibernate-entity-generation-config</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>hibernate-entity-generation-config</name>

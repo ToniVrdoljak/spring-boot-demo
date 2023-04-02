@@ -8,7 +8,7 @@
 		<version>3.0.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com</groupId>
+	<groupId>com.example</groupId>
 	<artifactId>backend-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>backend-app</name>
@@ -65,7 +65,7 @@
 						<version>${postgresql.version}</version>
 					</dependency>
 					<dependency>
-						<groupId>com</groupId>
+						<groupId>com.example</groupId>
 						<artifactId>hibernate-entity-generation-config</artifactId>
 						<version>0.0.1-SNAPSHOT</version>
 					</dependency>
@@ -73,7 +73,7 @@
 				<configuration>
 					<ejb3>true</ejb3>
 					<jdk5>true</jdk5>
-					<revengStrategy>com.hibernateentitygenerationconfig.CustomRevengStrategy</revengStrategy>
+					<revengStrategy>com.example.hibernateentitygenerationconfig.CustomRevengStrategy</revengStrategy>
 					<propertyFile>src/main/resources/hibernate-entity-generation.properties</propertyFile>
 					<outputDirectory>src/main/java</outputDirectory>
 				</configuration>

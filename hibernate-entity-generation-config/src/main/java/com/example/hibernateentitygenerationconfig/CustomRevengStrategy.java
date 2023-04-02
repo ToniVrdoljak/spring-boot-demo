@@ -1,4 +1,4 @@
-package com.hibernateentitygenerationconfig;
+package com.example.hibernateentitygenerationconfig;
 
 import org.hibernate.internal.util.StringHelper;
 import org.hibernate.tool.api.reveng.TableIdentifier;
@@ -15,7 +15,7 @@ public class CustomRevengStrategy extends AbstractStrategy {
 
     @Override
     public String tableToClassName(TableIdentifier ti) {
-        String pkgName = "com.springbootdemo.model";
+        String pkgName = "com.example.springbootdemo.model";
         String className = singularize(this.toUpperCamelCase(ti.getName()));
         return StringHelper.qualify(pkgName, className);
     }

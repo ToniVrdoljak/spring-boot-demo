@@ -1,5 +1,5 @@
-package com.springbootdemo.model;
-// Generated Mar 31, 2023, 10:43:33 PM by Hibernate Tools 6.1.7.Final
+package com.example.springbootdemo.model;
+// Generated Apr 2, 2023, 11:21:52 PM by Hibernate Tools 6.1.7.Final
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -39,10 +39,10 @@ public class JobRole implements java.io.Serializable {
     }
 
     @GenericGenerator(
-            name = "com.springbootdemo.model.JobRoleIdGenerator",
+            name = "com.example.springbootdemo.model.JobRoleIdGenerator",
             strategy = "org.hibernate.id.IdentityGenerator")
     @Id
-    @GeneratedValue(generator = "com.springbootdemo.model.JobRoleIdGenerator")
+    @GeneratedValue(generator = "com.example.springbootdemo.model.JobRoleIdGenerator")
     @Column(name = "id", unique = true, nullable = false)
     public Long getId() {
         return this.id;
