@@ -31,7 +31,11 @@ public class DepartmentDetailsRepositoryImpl implements DepartmentDetailsReposit
     @Override
     public Page<DepartmentDetails> findAll(DepartmentSearchCriteria departmentSearchCriteria, Pageable pageable) {
 
-        Long count = queryFactory.select(department.count()).from(department).fetchOne();
+        Long count = queryFactory
+                .select(department.count())
+                .from(department)
+                .where(DepartmentSearchUtils.transformToPredicate(departmentSearchCriteria))
+                .fetchOne();
 
         var query = queryFactory
                 .select(Projections.constructor(
