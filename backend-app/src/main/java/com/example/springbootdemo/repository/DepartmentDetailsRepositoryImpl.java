@@ -31,7 +31,7 @@ public class DepartmentDetailsRepositoryImpl implements DepartmentDetailsReposit
     @Override
     public Page<DepartmentDetails> findAll(DepartmentSearchCriteria departmentSearchCriteria, Pageable pageable) {
 
-        long count = queryFactory.select(department.count()).from(department).fetchOne();
+        Long count = queryFactory.select(department.count()).from(department).fetchOne();
 
         var query = queryFactory
                 .select(Projections.constructor(
@@ -51,7 +51,8 @@ public class DepartmentDetailsRepositoryImpl implements DepartmentDetailsReposit
 
         List<DepartmentDetails> departments = query.fetch();
 
-        return new PageImpl<>(departments, pageable, count);
+        if (count != null) return new PageImpl<>(departments, pageable, count);
+        else throw new RuntimeException("We should never get here since count should always be set");
     }
 
     @Override
